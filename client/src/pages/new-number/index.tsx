@@ -1,9 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocation } from "wouter";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+import { Button, Label, Select } from 'flowbite-react';
 import { FormLayout } from "@/components/FormLayout";
 import { useRisStore } from "@/store/risStore";
 import { numberFormSchema, type NumberFormData } from "@shared/schema";
@@ -45,63 +43,61 @@ export default function NewNumber() {
       subtitle="Choose a location and a number type"
       currentStep={0}
     >
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <FormField
-            control={form.control}
-            name="country"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Country</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a country" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {countries.map((country) => (
-                      <SelectItem key={country.value} value={country.value}>
-                        {country.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="country">Country</Label>
+          </div>
+          <Select
+            id="country"
+            {...form.register("country")}
+            required
+          >
+            <option value="">Select a country</option>
+            {countries.map((country) => (
+              <option key={country.value} value={country.value}>
+                {country.label}
+              </option>
+            ))}
+          </Select>
+          {form.formState.errors.country && (
+            <p className="mt-1 text-sm text-red-600">
+              {form.formState.errors.country.message}
+            </p>
+          )}
+        </div>
 
-          <FormField
-            control={form.control}
-            name="numberType"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Number Type</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a number type" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {numberTypes.map((type) => (
-                      <SelectItem key={type.value} value={type.value}>
-                        {type.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="numberType">Number Type</Label>
+          </div>
+          <Select
+            id="numberType"
+            {...form.register("numberType")}
+            required
+          >
+            <option value="">Select a number type</option>
+            {numberTypes.map((type) => (
+              <option key={type.value} value={type.value}>
+                {type.label}
+              </option>
+            ))}
+          </Select>
+          {form.formState.errors.numberType && (
+            <p className="mt-1 text-sm text-red-600">
+              {form.formState.errors.numberType.message}
+            </p>
+          )}
+        </div>
 
-          <Button type="submit" className="w-full" disabled={!form.formState.isValid}>
-            Next Step
-          </Button>
-        </form>
-      </Form>
+        <Button
+          type="submit"
+          disabled={!form.formState.isValid}
+          className="w-full"
+        >
+          Next Step
+        </Button>
+      </form>
     </FormLayout>
   );
 }
