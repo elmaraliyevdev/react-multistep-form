@@ -25,9 +25,9 @@ export function FormStep({ steps, currentStep }: FormStepProps) {
                   className={`flex h-8 w-8 items-center justify-center rounded-full text-center text-[10px]/6 font-bold
                     ${
                       isCompleted
-                        ? "bg-primary text-white"
+                        ? "bg-blue-600 text-white"
                         : isCurrent
-                        ? "border-2 border-primary bg-white text-primary"
+                        ? "border-2 border-blue-600 bg-white text-blue-600"
                         : "bg-gray-100 text-gray-500"
                     }`}
                 >

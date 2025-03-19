@@ -93,8 +93,8 @@ export default function NewNumber() {
         <Button
           type="submit"
           disabled={!form.formState.isValid}
+          className="w-full"
           color="blue"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-sm"
         >
           Next Step
         </Button>

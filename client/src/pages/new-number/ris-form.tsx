@@ -207,7 +207,6 @@ export default function RisForm() {
             type="button"
             color="gray"
             onClick={() => navigate("/new-number/identity-type")}
-            className="bg-gray-500 hover:bg-gray-600 text-white text-sm"
           >
             Back
           </Button>
@@ -215,7 +214,6 @@ export default function RisForm() {
             type="submit"
             color="blue"
             disabled={!form.formState.isValid}
-            className="bg-blue-600 hover:bg-blue-700 text-sm"
           >
             Submit
           </Button>
