@@ -21,7 +21,17 @@ export const risFormSchema = z.object({
   streetNumber: z.string().min(1, "Street number is required"),
   documentType: z.string().min(1, "Document type is required"),
   documentUrl: z.string().min(1, "Document upload is required")
-});
+}).refine(
+  (data) => {
+    if (data.companyName || data.companyRegistrationNumber) {
+      return data.companyName && data.companyRegistrationNumber;
+    }
+    return true;
+  },
+  {
+    message: "Both company name and registration number must be provided for business type"
+  }
+);
 
 export type NumberFormData = z.infer<typeof numberFormSchema>;
 export type IdentityTypeData = z.infer<typeof identityTypeSchema>;
