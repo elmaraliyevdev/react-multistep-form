@@ -93,6 +93,8 @@ export default function NewNumber() {
         <Button
           type="submit"
           disabled={!form.formState.isValid}
+          color="blue"
+          size="lg"
           className="w-full"
         >
           Next Step
