@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 import { Button, Radio } from 'flowbite-react';
 import { FormLayout } from "../../components/FormLayout";
 import { useRisStore } from "../../store/risStore";
-import { identityTypeSchema, type IdentityTypeData } from "../../../shared/schema";
+import { identityTypeSchema, type IdentityTypeData } from "../../shared/schema";
 import { Building2, User } from "lucide-react";
 
 export default function IdentityType() {
@@ -94,7 +94,7 @@ export default function IdentityType() {
           >
             Back
           </Button>
-          <Button 
+          <Button
             type="submit"
             color="blue"
             disabled={!form.formState.isValid}
