@@ -1,0 +1,66 @@
+Need your help with test task:
+
+Main objective is to develop a multi-step form in React to walk the users through “Regulatory Information Set (RIS) submission”. Find below a set of requirements that cover the overall objective of the exercise:
+
+The Regulatory Information Set (RIS) submission requires the user to go through 3 steps (3 screens).
+
+Step 1: “Create a new number” page (/new-number)
+
+1. Page Title & Context
+    Heading: “Create a new number”
+    Subtitle/Context text: “Choose a location and a number type”
+
+2. Form Fields
+    Country Selector (e.g., a SelectInput with “Germany (+49)” and other countries - Netherlands, France, Belgium, Austria).
+    Number Type (Local, National, Mobile, etc.).
+
+3. Next Step Button
+    Disabled until valid inputs are selected.
+    On click, navigate to the next step (/new-number/identity-type or programmatic route push).
+
+4. Validation
+    Country is required.
+    Number type is required.
+
+Step 2: “Select your identity type” page (/new-number/identity-type)
+
+1. Page Title & Context
+   Heading: “Select your identity type”
+   Subtitle: “Information will be used to purchase and register the number on your behalf”
+
+2. Identity Type Options
+    Radio buttons or cards for “Business” vs. “Individual”
+    Possibly an explanation text for each type.
+
+3. Next Step Button
+    Disabled until one option is selected.
+    On click, navigate to the next step (/new-number/ris-form).
+
+4. Validation
+    Identity type selection is required.
+
+Step 3: “Complete the RIS” page (/new-number/ris-form)
+
+1. Page Title & Context
+   Heading: “Complete the RIS”
+   Subtitle: “Please upload the necessary documents.”
+
+2. Form Sections
+    Company Details (if “Business” was selected):
+    - Company Name (required)
+    - Company Registration Number (required)
+    Company Address:
+    - Country (required)
+    - City (required)
+    - ZIP/Postal Code (required)
+    - Street Name (required)
+    - Street Number (required)
+    Proof of Address (required):
+    - Document Type (dropdown: “Utility Bill, “Bank Statement”, Other”)
+    - File Upload (drag-and-drop or input)
+
+
+
+Notes:
+
+Keep it simple! Need to use react-hook-form, zustand, and flowbite + tailwind for easier evaluation.
