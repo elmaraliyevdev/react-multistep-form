@@ -202,20 +202,22 @@ export default function RisForm() {
             )}
           />
 
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-4">
             <Button
               type="button"
               color="gray"
+              size="lg"
               onClick={() => navigate("/new-number/identity-type")}
-              className="bg-gray-500 hover:bg-gray-600 text-white"
+              className="bg-gray-500 hover:bg-gray-600 text-white text-base px-4 py-2.5"
             >
               Back
             </Button>
             <Button
               type="submit"
               color="blue"
+              size="lg"
               disabled={!form.formState.isValid}
-              className="bg-blue-600 hover:bg-blue-700"
+              className="bg-blue-600 hover:bg-blue-700 text-base px-4 py-2.5"
             >
               Submit
             </Button>
