@@ -210,7 +210,12 @@ export default function RisForm() {
             >
               Back
             </Button>
-            <Button type="submit">Submit</Button>
+            <Button 
+              type="submit"
+              disabled={!form.formState.isValid}
+            >
+              Submit
+            </Button>
           </div>
         </form>
       </Form>

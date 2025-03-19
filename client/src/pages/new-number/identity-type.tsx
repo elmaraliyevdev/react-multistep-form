@@ -102,7 +102,12 @@ export default function IdentityType() {
             >
               Back
             </Button>
-            <Button type="submit">Next Step</Button>
+            <Button 
+              type="submit"
+              disabled={!form.formState.isValid}
+            >
+              Next Step
+            </Button>
           </div>
         </form>
       </Form>

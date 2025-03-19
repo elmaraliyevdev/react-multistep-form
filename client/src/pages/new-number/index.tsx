@@ -97,7 +97,7 @@ export default function NewNumber() {
             )}
           />
 
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" disabled={!form.formState.isValid}>
             Next Step
           </Button>
         </form>
