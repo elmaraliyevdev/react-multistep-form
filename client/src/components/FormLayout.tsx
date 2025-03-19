@@ -34,16 +34,36 @@ export function FormLayout({ title, subtitle, children, currentStep }: FormLayou
           </div>
 
           {/* Progress Steps */}
-          <ol className="flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
-            {steps.map((step, index) => (
-              <li key={step.title} className={`flex md:w-full items-center ${index < steps.length - 1 ? 'after:content-[""] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10' : ''} ${currentStep >= index ? 'text-blue-600 dark:text-blue-500' : ''}`}>
-                <span className={`flex items-center justify-center w-8 h-8 ${currentStep >= index ? 'bg-blue-600 text-white' : 'bg-gray-200'} rounded-full lg:h-10 lg:w-10 shrink-0`}>
-                  {index + 1}
-                </span>
-                <span className="hidden sm:inline-flex sm:ml-2">{step.title}</span>
-              </li>
-            ))}
-          </ol>
+          <div className="relative after:absolute after:inset-x-0 after:top-1/2 after:block after:h-0.5 after:-translate-y-1/2 after:rounded-lg after:bg-gray-100">
+            <ol className="relative z-10 flex justify-between text-sm font-medium text-gray-500">
+              {steps.map((step, index) => {
+                const isCompleted = index < currentStep;
+                const isCurrent = index === currentStep;
+
+                return (
+                  <li key={step.title} className="flex items-center gap-2 bg-white p-2">
+                    <span
+                      className={`flex h-8 w-8 items-center justify-center rounded-full text-center text-[10px]/6 font-bold
+                        ${
+                          isCompleted
+                            ? "bg-blue-600 text-white"
+                            : isCurrent
+                            ? "border-2 border-blue-600 bg-white text-blue-600"
+                            : "bg-gray-100 text-gray-500"
+                        }`}
+                    >
+                      {index + 1}
+                    </span>
+
+                    <div className="hidden sm:block">
+                      <p className="font-medium text-gray-900">{step.title}</p>
+                      <p className="text-xs text-gray-500">{step.description}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
 
           {children}
         </div>
