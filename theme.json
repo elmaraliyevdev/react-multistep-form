@@ -1,6 +1,9 @@
 {
-  "variant": "professional",
-  "primary": "hsl(222.2 47.4% 11.2%)",
-  "appearance": "light",
-  "radius": 0.5
+  "colors": {
+    "primary": "#2563eb",
+    "secondary": "#6b7280",
+    "success": "#22c55e",
+    "danger": "#ef4444",
+    "warning": "#f59e0b"
+  }
 }
