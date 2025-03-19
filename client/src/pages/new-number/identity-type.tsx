@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocation } from "wouter";
 import { Button, Radio } from 'flowbite-react';
-import { FormLayout } from "@/components/FormLayout";
-import { useRisStore } from "@/store/risStore";
-import { identityTypeSchema, type IdentityTypeData } from "@shared/schema";
+import { FormLayout } from "../../components/FormLayout";
+import { useRisStore } from "../../store/risStore";
+import { identityTypeSchema, type IdentityTypeData } from "../../../shared/schema";
 import { Building2, User } from "lucide-react";
 
 export default function IdentityType() {
@@ -87,23 +87,23 @@ export default function IdentityType() {
         )}
 
         <div className="flex justify-between gap-4">
-            <Button
-              type="button"
-              color="gray"
-              onClick={() => navigate("/new-number")}
-              className="bg-gray-500 hover:bg-gray-600 text-white text-sm"
-            >
-              Back
-            </Button>
-            <Button 
-              type="submit"
-              color="blue"
-              disabled={!form.formState.isValid}
-              className="bg-blue-600 hover:bg-blue-700 text-sm"
-            >
-              Next Step
-            </Button>
-          </div>
+          <Button
+            type="button"
+            color="gray"
+            onClick={() => navigate("/new-number")}
+            className="bg-gray-500 hover:bg-gray-600 text-white text-sm"
+          >
+            Back
+          </Button>
+          <Button 
+            type="submit"
+            color="blue"
+            disabled={!form.formState.isValid}
+            className="bg-blue-600 hover:bg-blue-700 text-sm"
+          >
+            Next Step
+          </Button>
+        </div>
       </form>
     </FormLayout>
   );
