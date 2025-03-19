@@ -1,22 +1,4 @@
-import { pgTable, text, serial, integer, boolean } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
-
-export const risSubmission = pgTable("ris_submission", {
-  id: serial("id").primaryKey(),
-  country: text("country").notNull(),
-  numberType: text("number_type").notNull(),
-  identityType: text("identity_type").notNull(),
-  companyName: text("company_name"),
-  companyRegistrationNumber: text("company_registration_number"),
-  addressCountry: text("address_country").notNull(),
-  city: text("city").notNull(),
-  postalCode: text("postal_code").notNull(),
-  streetName: text("street_name").notNull(),
-  streetNumber: text("street_number").notNull(),
-  documentType: text("document_type").notNull(),
-  documentUrl: text("document_url").notNull()
-});
 
 export const numberFormSchema = z.object({
   country: z.string().min(1, "Country is required"),
@@ -44,4 +26,3 @@ export const risFormSchema = z.object({
 export type NumberFormData = z.infer<typeof numberFormSchema>;
 export type IdentityTypeData = z.infer<typeof identityTypeSchema>;
 export type RisFormData = z.infer<typeof risFormSchema>;
-export type RisSubmission = typeof risSubmission.$inferSelect;
