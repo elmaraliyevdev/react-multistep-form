@@ -87,25 +87,23 @@ export default function IdentityType() {
         )}
 
         <div className="flex justify-between gap-4">
-          <Button
-            type="button"
-            color="gray"
-            size="lg"
-            onClick={() => navigate("/new-number")}
-            className="bg-gray-500 hover:bg-gray-600 text-white text-base px-4 py-2.5"
-          >
-            Back
-          </Button>
-          <Button 
-            type="submit"
-            color="blue"
-            size="lg"
-            disabled={!form.formState.isValid}
-            className="bg-blue-600 hover:bg-blue-700 text-base px-4 py-2.5"
-          >
-            Next Step
-          </Button>
-        </div>
+            <Button
+              type="button"
+              color="gray"
+              onClick={() => navigate("/new-number")}
+              className="bg-gray-500 hover:bg-gray-600 text-white text-sm"
+            >
+              Back
+            </Button>
+            <Button 
+              type="submit"
+              color="blue"
+              disabled={!form.formState.isValid}
+              className="bg-blue-600 hover:bg-blue-700 text-sm"
+            >
+              Next Step
+            </Button>
+          </div>
       </form>
     </FormLayout>
   );

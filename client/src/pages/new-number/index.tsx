@@ -94,8 +94,7 @@ export default function NewNumber() {
           type="submit"
           disabled={!form.formState.isValid}
           color="blue"
-          size="lg"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-base px-4 py-2.5"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-sm"
         >
           Next Step
         </Button>
