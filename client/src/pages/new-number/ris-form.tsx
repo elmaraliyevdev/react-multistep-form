@@ -1,10 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocation } from "wouter";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+import { Button, Label, Select, TextInput } from 'flowbite-react';
 import { FormLayout } from "@/components/FormLayout";
 import { useRisStore } from "@/store/risStore";
 import { risFormSchema, type RisFormData } from "@shared/schema";
@@ -46,182 +43,184 @@ export default function RisForm() {
       subtitle="Please upload the necessary documents"
       currentStep={2}
     >
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          {identityType?.identityType === "business" && (
-            <>
-              <FormField
-                control={form.control}
-                name="companyName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Company Name</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        {identityType?.identityType === "business" && (
+          <>
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="companyName">Company Name</Label>
+              </div>
+              <TextInput
+                id="companyName"
+                {...form.register("companyName")}
               />
+              {form.formState.errors.companyName && (
+                <p className="mt-1 text-sm text-red-600">
+                  {form.formState.errors.companyName.message}
+                </p>
+              )}
+            </div>
 
-              <FormField
-                control={form.control}
-                name="companyRegistrationNumber"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Company Registration Number</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+            <div>
+              <div className="mb-2 block">
+                <Label htmlFor="companyRegistrationNumber">Company Registration Number</Label>
+              </div>
+              <TextInput
+                id="companyRegistrationNumber"
+                {...form.register("companyRegistrationNumber")}
               />
-            </>
+              {form.formState.errors.companyRegistrationNumber && (
+                <p className="mt-1 text-sm text-red-600">
+                  {form.formState.errors.companyRegistrationNumber.message}
+                </p>
+              )}
+            </div>
+          </>
+        )}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="addressCountry">Country</Label>
+            </div>
+            <TextInput
+              id="addressCountry"
+              {...form.register("addressCountry")}
+            />
+            {form.formState.errors.addressCountry && (
+              <p className="mt-1 text-sm text-red-600">
+                {form.formState.errors.addressCountry.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="city">City</Label>
+            </div>
+            <TextInput
+              id="city"
+              {...form.register("city")}
+            />
+            {form.formState.errors.city && (
+              <p className="mt-1 text-sm text-red-600">
+                {form.formState.errors.city.message}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="postalCode">Postal Code</Label>
+          </div>
+          <TextInput
+            id="postalCode"
+            {...form.register("postalCode")}
+          />
+          {form.formState.errors.postalCode && (
+            <p className="mt-1 text-sm text-red-600">
+              {form.formState.errors.postalCode.message}
+            </p>
           )}
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField
-              control={form.control}
-              name="addressCountry"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Country</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="streetName">Street Name</Label>
+            </div>
+            <TextInput
+              id="streetName"
+              {...form.register("streetName")}
             />
-
-            <FormField
-              control={form.control}
-              name="city"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>City</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            {form.formState.errors.streetName && (
+              <p className="mt-1 text-sm text-red-600">
+                {form.formState.errors.streetName.message}
+              </p>
+            )}
           </div>
 
-          <FormField
-            control={form.control}
-            name="postalCode"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Postal Code</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField
-              control={form.control}
-              name="streetName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Street Name</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="streetNumber">Street Number</Label>
+            </div>
+            <TextInput
+              id="streetNumber"
+              {...form.register("streetNumber")}
             />
-
-            <FormField
-              control={form.control}
-              name="streetNumber"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Street Number</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <FormField
-            control={form.control}
-            name="documentType"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Document Type</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select document type" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {documentTypes.map((type) => (
-                      <SelectItem key={type.value} value={type.value}>
-                        {type.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
+            {form.formState.errors.streetNumber && (
+              <p className="mt-1 text-sm text-red-600">
+                {form.formState.errors.streetNumber.message}
+              </p>
             )}
-          />
-
-          <FormField
-            control={form.control}
-            name="documentUrl"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Upload Document</FormLabel>
-                <FormControl>
-                  <Input
-                    type="file"
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      if (file) {
-                        // Here you would typically upload the file and get a URL
-                        field.onChange(URL.createObjectURL(file));
-                      }
-                    }}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <div className="flex justify-between gap-4">
-            <Button
-              type="button"
-              color="gray"
-              onClick={() => navigate("/new-number/identity-type")}
-              className="bg-gray-500 hover:bg-gray-600 text-white text-sm"
-            >
-              Back
-            </Button>
-            <Button
-              type="submit"
-              color="blue"
-              disabled={!form.formState.isValid}
-              className="bg-blue-600 hover:bg-blue-700 text-sm"
-            >
-              Submit
-            </Button>
           </div>
-        </form>
-      </Form>
+        </div>
+
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="documentType">Document Type</Label>
+          </div>
+          <Select
+            id="documentType"
+            {...form.register("documentType")}
+          >
+            <option value="">Select document type</option>
+            {documentTypes.map((type) => (
+              <option key={type.value} value={type.value}>
+                {type.label}
+              </option>
+            ))}
+          </Select>
+          {form.formState.errors.documentType && (
+            <p className="mt-1 text-sm text-red-600">
+              {form.formState.errors.documentType.message}
+            </p>
+          )}
+        </div>
+
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="documentUpload">Upload Document</Label>
+          </div>
+          <input
+            type="file"
+            id="documentUpload"
+            className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) {
+                // Here you would typically upload the file and get a URL
+                form.setValue("documentUrl", URL.createObjectURL(file));
+              }
+            }}
+          />
+          {form.formState.errors.documentUrl && (
+            <p className="mt-1 text-sm text-red-600">
+              {form.formState.errors.documentUrl.message}
+            </p>
+          )}
+        </div>
+
+        <div className="flex justify-between gap-4">
+          <Button
+            type="button"
+            color="gray"
+            onClick={() => navigate("/new-number/identity-type")}
+            className="bg-gray-500 hover:bg-gray-600 text-white text-sm"
+          >
+            Back
+          </Button>
+          <Button
+            type="submit"
+            color="blue"
+            disabled={!form.formState.isValid}
+            className="bg-blue-600 hover:bg-blue-700 text-sm"
+          >
+            Submit
+          </Button>
+        </div>
+      </form>
     </FormLayout>
   );
 }
