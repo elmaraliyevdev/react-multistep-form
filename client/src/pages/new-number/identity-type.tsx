@@ -91,6 +91,7 @@ export default function IdentityType() {
             type="button"
             color="gray"
             onClick={() => navigate("/new-number")}
+            className="bg-gray-500 hover:bg-gray-600 text-white"
           >
             Back
           </Button>
@@ -98,6 +99,7 @@ export default function IdentityType() {
             type="submit"
             color="blue"
             disabled={!form.formState.isValid}
+            className="bg-blue-600 hover:bg-blue-700"
           >
             Next Step
           </Button>

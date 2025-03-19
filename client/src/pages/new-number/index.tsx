@@ -95,7 +95,7 @@ export default function NewNumber() {
           disabled={!form.formState.isValid}
           color="blue"
           size="lg"
-          className="w-full"
+          className="w-full bg-blue-600 hover:bg-blue-700"
         >
           Next Step
         </Button>
