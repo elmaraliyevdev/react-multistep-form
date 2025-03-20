@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 import { Button, Label, Select, TextInput } from 'flowbite-react';
 import { FormLayout } from "@/components/FormLayout";
 import { useRisStore } from "@/store/risStore";
-import { risFormSchema } from "@shared/schema";
+import { risFormSchema } from "@/schema";
 import { RisFormData, DocumentType } from "@/types";
 
 const documentTypes: DocumentType[] = [
@@ -208,6 +208,8 @@ export default function RisForm() {
             type="button"
             color="gray"
             onClick={() => navigate("/new-number/identity-type")}
+            className="bg-grey-600 border-grey-600 py-0 px-2"
+
           >
             Back
           </Button>
@@ -215,6 +217,8 @@ export default function RisForm() {
             type="submit"
             color="blue"
             disabled={!form.formState.isValid}
+            className="bg-blue-600 border-blue-600 py-0 px-2 disabled:opacity-50 disabled:cursor-not-allowed"
+
           >
             Submit
           </Button>

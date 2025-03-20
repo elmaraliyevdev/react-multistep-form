@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 import { Button, Label, Select } from 'flowbite-react';
 import { FormLayout } from "@/components/FormLayout";
 import { useRisStore } from "@/store/risStore";
-import { numberFormSchema } from "@shared/schema";
+import { numberFormSchema } from "@/schema";
 import { NumberFormData } from "@/types";
 
 const countries = [
@@ -94,8 +94,8 @@ export default function NewNumber() {
         <Button
           type="submit"
           disabled={!form.formState.isValid}
-          className="w-full"
           color="blue"
+          className="bg-blue-600 border-blue-600 w-full py-0 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Next Step
         </Button>

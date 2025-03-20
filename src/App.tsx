@@ -1,11 +1,9 @@
 import { Switch, Route, Redirect } from "wouter";
-import { Toaster } from "@/components/ui/toaster";
-import NewNumber from "@/pages/new-number";
-import IdentityType from "@/pages/new-number/identity-type";
-import RisForm from "@/pages/new-number/ris-form";
-import NotFound from "@/pages/not-found";
+import NewNumber from "@/pages/index";
+import IdentityType from "@/pages/identity-type";
+import RisForm from "@/pages/ris-form";
 
-function Router() {
+function App() {
   return (
     <Switch>
       <Route path="/">
@@ -14,17 +12,7 @@ function Router() {
       <Route path="/new-number" component={NewNumber} />
       <Route path="/new-number/identity-type" component={IdentityType} />
       <Route path="/new-number/ris-form" component={RisForm} />
-      <Route component={NotFound} />
     </Switch>
-  );
-}
-
-function App() {
-  return (
-    <>
-      <Router />
-      <Toaster />
-    </>
   );
 }
 
