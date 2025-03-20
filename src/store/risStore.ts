@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { NumberFormData, IdentityTypeData, RisFormData } from '@shared/schema';
+import { NumberFormData, IdentityTypeData, RisFormData } from '../../shared/schema';
 
 interface RisStore {
   numberFormData: NumberFormData | null;
