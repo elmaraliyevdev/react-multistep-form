@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocation } from "wouter";
 import { Button, Radio } from 'flowbite-react';
-import { FormLayout } from "@/components/FormLayout";
-import { useRisStore } from "@/store/risStore";
-import { identityTypeSchema, type IdentityTypeData } from "@shared/schema";
+import { FormLayout } from "../../components/FormLayout";
+import { useRisStore } from "../../store/risStore";
+import { identityTypeSchema, type IdentityTypeData } from "../../../shared/schema";
 import { Building2, User } from "lucide-react";
 
 export default function IdentityType() {
