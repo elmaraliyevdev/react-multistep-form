@@ -2,10 +2,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocation } from "wouter";
 import { Button, Label, Select } from 'flowbite-react';
-import { FormLayout } from "../../components/FormLayout";
-import { useRisStore } from "../../store/risStore";
-import { numberFormSchema } from "../../../shared/schema";
-import { NumberFormData } from "../../types";
+import { FormLayout } from "@/components/FormLayout";
+import { useRisStore } from "@/store/risStore";
+import { numberFormSchema } from "@shared/schema";
+import { NumberFormData } from "@/types";
 
 const countries = [
   { value: "de", label: "Germany (+49)" },

@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { Step } from "../types";
+import { Step } from "@/types";
 
 interface FormStepProps {
   steps: Step[];

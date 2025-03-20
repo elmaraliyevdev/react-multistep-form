@@ -2,10 +2,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocation } from "wouter";
 import { Button, Label, Select, TextInput } from 'flowbite-react';
-import { FormLayout } from "../../components/FormLayout";
-import { useRisStore } from "../../store/risStore";
-import { risFormSchema } from "../../../shared/schema";
-import { RisFormData, DocumentType } from "../../types";
+import { FormLayout } from "@/components/FormLayout";
+import { useRisStore } from "@/store/risStore";
+import { risFormSchema } from "@shared/schema";
+import { RisFormData, DocumentType } from "@/types";
 
 const documentTypes: DocumentType[] = [
   { value: "utility_bill", label: "Utility Bill" },

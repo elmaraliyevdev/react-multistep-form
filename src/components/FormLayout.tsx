@@ -1,5 +1,5 @@
-import { FormStep } from "./FormStep";
-import { FormLayoutProps, Step } from "../types";
+import { FormStep } from "@/components/FormStep";
+import { FormLayoutProps, Step } from "@/types";
 
 const steps: Step[] = [
   {

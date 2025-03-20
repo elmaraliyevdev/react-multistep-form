@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { RisStore, NumberFormData, IdentityTypeData, RisFormData } from '../types';
+import { RisStore, NumberFormData, IdentityTypeData, RisFormData } from '@/types';
 
 export const useRisStore = create<RisStore>((set) => ({
   numberFormData: null,

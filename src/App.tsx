@@ -1,9 +1,9 @@
 import { Switch, Route, Redirect } from "wouter";
-import { Toaster } from "./components/ui/toaster";
-import NewNumber from "./pages/new-number";
-import IdentityType from "./pages/new-number/identity-type";
-import RisForm from "./pages/new-number/ris-form";
-import NotFound from "./pages/not-found";
+import { Toaster } from "@/components/ui/toaster";
+import NewNumber from "@/pages/new-number";
+import IdentityType from "@/pages/new-number/identity-type";
+import RisForm from "@/pages/new-number/ris-form";
+import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
