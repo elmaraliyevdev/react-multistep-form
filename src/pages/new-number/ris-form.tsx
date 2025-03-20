@@ -4,9 +4,10 @@ import { useLocation } from "wouter";
 import { Button, Label, Select, TextInput } from 'flowbite-react';
 import { FormLayout } from "../../components/FormLayout";
 import { useRisStore } from "../../store/risStore";
-import { risFormSchema, type RisFormData } from "../../../shared/schema";
+import { risFormSchema } from "../../../shared/schema";
+import { RisFormData, DocumentType } from "../../types";
 
-const documentTypes = [
+const documentTypes: DocumentType[] = [
   { value: "utility_bill", label: "Utility Bill" },
   { value: "bank_statement", label: "Bank Statement" },
   { value: "other", label: "Other" },

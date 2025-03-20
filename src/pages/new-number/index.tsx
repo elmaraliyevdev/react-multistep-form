@@ -4,7 +4,8 @@ import { useLocation } from "wouter";
 import { Button, Label, Select } from 'flowbite-react';
 import { FormLayout } from "../../components/FormLayout";
 import { useRisStore } from "../../store/risStore";
-import { numberFormSchema, type NumberFormData } from "../../../shared/schema";
+import { numberFormSchema } from "../../../shared/schema";
+import { NumberFormData } from "../../types";
 
 const countries = [
   { value: "de", label: "Germany (+49)" },

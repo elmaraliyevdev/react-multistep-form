@@ -1,11 +1,5 @@
-import { FormStep, type Step } from "./FormStep";
-
-interface FormLayoutProps {
-  title: string;
-  subtitle: string;
-  currentStep: number;
-  children: React.ReactNode;
-}
+import { FormStep } from "./FormStep";
+import { FormLayoutProps, Step } from "../types";
 
 const steps: Step[] = [
   {

@@ -1,15 +1,5 @@
 import { create } from 'zustand';
-import { NumberFormData, IdentityTypeData, RisFormData } from '../../shared/schema';
-
-interface RisStore {
-  numberFormData: NumberFormData | null;
-  identityType: IdentityTypeData | null;
-  risFormData: RisFormData | null;
-  setNumberFormData: (data: NumberFormData) => void;
-  setIdentityType: (data: IdentityTypeData) => void;
-  setRisFormData: (data: RisFormData) => void;
-  reset: () => void;
-}
+import { RisStore, NumberFormData, IdentityTypeData, RisFormData } from '../types';
 
 export const useRisStore = create<RisStore>((set) => ({
   numberFormData: null,

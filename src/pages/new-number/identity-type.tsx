@@ -4,7 +4,8 @@ import { useLocation } from "wouter";
 import { Button, Radio } from 'flowbite-react';
 import { FormLayout } from "../../components/FormLayout";
 import { useRisStore } from "../../store/risStore";
-import { identityTypeSchema, type IdentityTypeData } from "../../../shared/schema";
+import { identityTypeSchema } from "../../../shared/schema";
+import { IdentityTypeData } from "../../types";
 import { Building2, User } from "lucide-react";
 
 export default function IdentityType() {
